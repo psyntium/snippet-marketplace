@@ -91,6 +91,7 @@ url will look like this
 `
 My development endpoint is a sub-domain of a domain that has a wildcard certificate from a certificate authority
 `
+     
      ![](https://raw.githubusercontent.com/snippet-java/snippet-marketplace/master/nodejs/images/alexa7.png)
 	 
 Click Next
