@@ -1,6 +1,6 @@
 var parameters = {
-  "first name": "John",
-  "last name": "Doe",
+  "name": "John Doe",
+  "email": "jdoe@xyz.com",
   "zip": "27517"
 }
 
