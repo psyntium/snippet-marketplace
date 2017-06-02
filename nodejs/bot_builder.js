@@ -8,5 +8,8 @@
 //5. repeat steps 3 to 4 many times
 
 function main(params) {
-    return {body:'How are you doing ' + JSON.stringify(params.text)};
+    if (params.text)
+        return {body:'How are you doing ' + JSON.stringify(params.text)};
+    else
+        return {body:'Please pass me some parameters'};
 }
