@@ -5,10 +5,15 @@ function main(params) {
     const NaturalLanguageClassifierV1 =
       require('watson-developer-cloud/natural-language-classifier/v1');
 
+    var url = params.url || 'https://gateway.watsonplatform.net/natural-language-classifier/api' ;
+    var use_unauthenticated =  params.use_unauthenticated || false ;
+
     const natural_language_classifier = new NaturalLanguageClassifierV1({
-      username: params.username,
-      password: params.password,
-      version: 'v1'
+      'username': params.username,
+      'password': params.password,
+      'version': 'v1',
+      'url' : url,
+      'use_unauthenticated': use_unauthenticated
     });
 
     natural_language_classifier.
@@ -25,9 +30,11 @@ function main(params) {
 
 const defaultParameters = {
   'textToClassify' : 'Will it rain tomorrow?',
-  'classifier_id'  : 'ff18c7x157-nlc-2810',
-  'username'       : '1e2a85d3-f9f3-4d77-9b44-d0d56c93a028',
-  'password'       : 'EjhIkxAUWWVQ'
+  'classifier_id'  : '359f41x201-nlc-180573',
+  'username'       : '',
+  'password'       : '',
+  'url' : 'https://sandbox-watson-proxy.mybluemix.net/natural-language-classifier/api',
+  'use_unauthenticated' : true  
 }
 
 if (require.main === module)

@@ -2,10 +2,14 @@ function main(params) {
   const LanguageTranslationV2 =
     require('watson-developer-cloud/language-translation/v2');
 
+  var url = params.url || 'https://gateway.watsonplatform.net/language-translator/api' ;
+  var use_unauthenticated =  params.use_unauthenticated || false ;
+  
   const language_translator = new LanguageTranslationV2({
-    username: params.username,
-    password: params.password,
-    url: params.url
+    'username': params.username,
+    'password': params.password,
+    'url' : url,
+    'use_unauthenticated': use_unauthenticated
   });
 
   return new Promise(function (resolve, reject) {
@@ -63,9 +67,10 @@ function spanishToEnglish(textToTranslate, language_translator) {
 
 const defaultParameters = {
   'textToTranslate' : 'That that is not confusing is amazing.',
-  'username'        : '344ba80c-fa8f-42db-b3ec-63e039b515d7',
-  'password'        : 'djhlrKh2st3T',
-  'url'             : 'https://gateway.watsonplatform.net/language-translator/api'
+  'username'        : '',
+  'password'        : '',
+  'url'             : 'https://sandbox-watson-proxy.mybluemix.net/language-translator/api',
+  'use_unauthenticated' : true
 }
 
 if (require.main === module)
