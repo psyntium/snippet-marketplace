@@ -25,7 +25,7 @@ function main(params) {
 }
 
 const defaultParameters = {
-  'api_key': 'adea4e1a51525d502c2502c2114610b959cf9dbe',
+  'api_key': '',
   'imageurl': 'https://raw.githubusercontent.com/watson-developer-cloud/doc-tutorial-downloads/master/visual-recognition/fruitbowl.jpg',
   'url' : 'https://sandbox-watson-proxy.mybluemix.net/visual-recognition/api',
   'use_unauthenticated' : true
