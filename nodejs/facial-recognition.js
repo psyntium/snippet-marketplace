@@ -25,7 +25,7 @@ function main(params) {
 }
 
 const defaultParameters = {
-  'api_key': 'cf8ff9af4fd5323e190b6df6b730ab4919464c73',
+  'api_key': '',
   'imageurl': 'https://www.whitehouse.gov/sites/whitehouse.gov/files/images/' +
          'first-family/44_barack_obama%5B1%5D.jpg',
   'url' : 'https://sandbox-watson-proxy.mybluemix.net/visual-recognition/api',
