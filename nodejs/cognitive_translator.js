@@ -12,6 +12,8 @@ function main(params) {
   var language_translator = new LanguageTranslatorV2({
     username: params.username, 
     password: params.password, 
+    url : "https://sandbox-watson-proxy.mybluemix.net/language-translator/api",
+    use_unauthenticated: true
   });
 
   language_translator.translate({
