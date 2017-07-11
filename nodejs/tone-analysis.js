@@ -5,10 +5,15 @@ function main(params) {
     const ToneAnalyzerV3 =
       require('watson-developer-cloud/tone-analyzer/v3');
 
+    var url = params.url || 'https://gateway.watsonplatform.net/tone-analyzer/api' ;
+    var use_unauthenticated =  params.use_unauthenticated || false ;
+
     const tone_analyzer = new ToneAnalyzerV3({
-      username: params.username,
-      password: params.password,
-      version_date: '2016-05-20'
+      'username': params.username,
+      'password': params.password,
+      'version_date': '2016-05-20',
+      'url' : url,
+      'use_unauthenticated': use_unauthenticated
     });
 
     tone_analyzer.tone({'text': params.textToAnalyze}, function(err, res) {
@@ -31,8 +36,10 @@ const defaultParameters = {
       Our product is in no way inferior to the competitor products. \
       Our clients are hungry for analytical tools to improve their \
       business outcomes. Economy has nothing to do with it.',
-  'username':      '470d0294-a580-4072-8b4e-beb063ee971a',
-  'password':      '40BK1H3VUnUL'
+  'username':      '',
+  'password':      '',
+  'url' : 'https://sandbox-watson-proxy.mybluemix.net/tone-analyzer/api',
+  'use_unauthenticated' : true
 }
 
 if (require.main === module)

@@ -2,13 +2,19 @@ function main(params) {
   return new Promise(function (resolve, reject) {
     var res = {};
 
+
     const PersonalityInsightsV3 =
       require('watson-developer-cloud/personality-insights/v3');
 
+    var url = params.url || 'https://gateway.watsonplatform.net/personality-insights/api' ;
+    var use_unauthenticated =  params.use_unauthenticated || false ;
+
     const personality_insights = new PersonalityInsightsV3({
-      username: params.username,
-      password: params.password,
-      version_date: '2016-05-20'
+      'username': params.username,
+      'password': params.password,
+      'version_date': '2016-05-20',
+      'url' : url,
+      'use_unauthenticated': use_unauthenticated
     });
 
     personality_insights.profile({'text': params.textToAnalyze},
@@ -43,8 +49,10 @@ const defaultParameters = {
       with me. There now is your insular city of the Manhattoes, belted \
       round by wharves as Indian isles by coral reefs-commerce surrounds \
       it with her surf. Right and left, the streets take you waterward.',
-  'username':      'dc81f140-d0ae-44bf-bf90-b06d97aaa1e5',
-  'password':      '4b0vGKSvLHmv'
+  'username':      '',
+  'password':      '',
+  'url' : 'https://sandbox-watson-proxy.mybluemix.net/personality-insights/api',
+  'use_unauthenticated' : true
 }
 
 if (require.main === module)
