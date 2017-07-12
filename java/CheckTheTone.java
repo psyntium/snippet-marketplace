@@ -25,8 +25,10 @@ public class CheckTheTone {
 
   private static String data =
     "{\"textToAnalyze\" : \"" + textToAnalyze + "\"," +
-    " \"username\"      : \"470d0294-a580-4072-8b4e-beb063ee971a\"," +
-    " \"password\"      : \"40BK1H3VUnUL\"}";
+    " \"username\"       : \"\"," +
+    " \"password\"       : \"\"," +
+    " \"endpoint\"        : \"https://sandbox-watson-proxy.mybluemix.net/tone-analyzer/api\"," +
+    " \"authentication\"  : \"true\"}";
 
   public static void main(String[] args) {
     JsonParser parser = new JsonParser();
@@ -45,6 +47,10 @@ public class CheckTheTone {
       ToneAnalyzer.VERSION_DATE_2016_05_19);
     service.setUsernameAndPassword(args.get("username").getAsString(),
                                    args.get("password").getAsString());
+ 	if (args.get("endpoint")!=null) 
+    	service.setEndPoint(args.get("endpoint").getAsString());
+ 	
+ 	if (args.get("authentication")!=null) service.setSkipAuthentication((args.get("authentication").getAsString()=="true")?true:false);
 
     ToneAnalysis result =
         service.getTone(args.get("textToAnalyze").getAsString(), null).

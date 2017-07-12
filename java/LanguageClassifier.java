@@ -11,9 +11,11 @@ public class LanguageClassifier {
 
   private static String data =
     "{\"textToClassify\" : \"Will it rain tomorrow?\","  +
-    " \"contextId\"      : \"ff18c7x157-nlc-2810\"," +
-    " \"username\"       : \"1e2a85d3-f9f3-4d77-9b44-d0d56c93a028\"," +
-    " \"password\"       : \"EjhIkxAUWWVQ\"}";
+    " \"contextId\"      : \"359f41x201-nlc-180573\"," +
+    " \"username\"       : \"\"," +
+    " \"password\"       : \"\"," +
+    " \"endpoint\"        : \"https://sandbox-watson-proxy.mybluemix.net/natural-language-classifier/api\"," +
+    " \"authentication\"  : \"true\"}";
 
   public static void main(String[] args) {
     JsonParser parser = new JsonParser();
@@ -33,6 +35,11 @@ public class LanguageClassifier {
     service.setUsernameAndPassword
         (args.get("username").getAsString(),
          args.get("password").getAsString());
+         
+ if (args.get("endpoint")!=null) 
+    	service.setEndPoint(args.get("endpoint").getAsString());
+ 	
+ 	if (args.get("authentication")!=null) service.setSkipAuthentication((args.get("authentication").getAsString()=="true")?true:false);
 
     Classification result = service.classify
         (args.get("contextId").getAsString(),

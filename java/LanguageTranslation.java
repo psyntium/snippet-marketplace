@@ -12,8 +12,10 @@ public class LanguageTranslation {
 
   private static String data =
     "{\"textToTranslate\" : \"That that is not confusing is amazing.\"," +
-    " \"username\"        : \"395a20f2-f1ac-4af5-bcc6-c9d77aa0e559\"," +
-    " \"password\"        : \"kpJJC4XP8Jwe\"}";
+    " \"username\"        : \"\"," +
+    " \"password\"        : \"\"," +
+    " \"endpoint\"        : \"https://sandbox-watson-proxy.mybluemix.net/language-translator/api\"," +
+    " \"authentication\"  : \"true\"}";
 
   public static void main(String[] args) {
     JsonParser parser = new JsonParser();
@@ -35,6 +37,12 @@ public class LanguageTranslation {
     String username = args.get("username").getAsString();
     String password = args.get("password").getAsString();
     service.setUsernameAndPassword(username, password);
+    
+    if (args.get("endpoint")!=null) 
+    	service.setEndPoint(args.get("endpoint").getAsString());
+ 	
+ 	if (args.get("authentication")!=null) service.setSkipAuthentication((args.get("authentication").getAsString()=="true")?true:false);
+
 
     String textToTranslate = args.get("textToTranslate").getAsString();
 

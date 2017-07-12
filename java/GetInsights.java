@@ -33,8 +33,10 @@ public class GetInsights {
 
   private static String data =
     "{\"textToAnalyze\" : \"" + textToAnalyze + "\"," +
-    " \"username\"      : \"dc81f140-d0ae-44bf-bf90-b06d97aaa1e5\"," +
-    " \"password\"      : \"4b0vGKSvLHmv\"}";
+    " \"username\"       : \"\"," +
+    " \"password\"       : \"\"," +
+    " \"endpoint\"        : \"https://sandbox-watson-proxy.mybluemix.net/personality-insights/api\"," +
+    " \"authentication\"  : \"true\"}";
 
   public static void main(String[] args) {
     JsonParser parser = new JsonParser();
@@ -53,6 +55,12 @@ public class GetInsights {
       PersonalityInsights(PersonalityInsights.VERSION_DATE_2016_10_19);
     service.setUsernameAndPassword(args.get("username").getAsString(),
                                    args.get("password").getAsString());
+
+ 	if (args.get("endpoint")!=null) 
+    	service.setEndPoint(args.get("endpoint").getAsString());
+ 	
+ 	if (args.get("authentication")!=null) service.setSkipAuthentication((args.get("authentication").getAsString()=="true")?true:false);
+
 
     Profile result =
         service.getProfile(args.get("textToAnalyze").getAsString()).
