@@ -1,10 +1,10 @@
 var parameters = {
     "dbname": "person",
-    "docid": "f7b4a0282600c4155fd6cc574a679c5c",
+    "docid": "",
     "name": "foo bar",
     "comment" : "test to update the document",
-    "username": "9c30f6dc-3ead-4ccc-8928-4eef9dabdfe6-bluemix",
-    "password": "88dac7d3fb8877e7a6959a2a6cd873389a70df30e3213c4c55b5f28dd37dd617"
+    "username": "",
+    "password": ""
 }
 const request = require("request");
 const Cloudant = require('cloudant');
