@@ -16,15 +16,9 @@ public class a_simple_app {
 		JsonObject response = new JsonObject();
 		
 		JsonObject output = new JsonObject();
-<<<<<<< HEAD
 		output.addProperty("Name", args.getAsJsonPrimitive("Name").getAsString());
 		output.addProperty("Email", args.getAsJsonPrimitive("Email").getAsString());
 		output.addProperty("Comment", args.getAsJsonPrimitive("Comment").getAsString());
-=======
-		output.addProperty("Name", mybean.getAsJsonPrimitive("Name").getAsString());
-		output.addProperty("Email", mybean.getAsJsonPrimitive("Email").getAsString());
-		output.addProperty("Comment", mybean.getAsJsonPrimitive("Comment").getAsString());
->>>>>>> c6dac509fa544d3537ba19e3389f3c148f979fa7
 		
 		response.add("output", output);
         
