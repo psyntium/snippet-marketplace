@@ -12,7 +12,7 @@ import com.ibm.watson.developer_cloud.visual_recognition.v3.model.VisualRecognit
 public class FacialRecognition {
 
   // Image URL is Barack Obama
-  private static String data =
+  private static String testparams =
       "{ \"apiKey\": \"\", " 
       +" \"imageUrl\": \"https://www.whitehouse.gov/sites/whitehouse.gov/files/images/first-family/44_barack_obama%5B1%5D.jpg\"," 
       +" \"endpoint\": \"https://sandbox-watson-proxy.mybluemix.net/visual-recognition/api\"," 
@@ -22,7 +22,7 @@ public class FacialRecognition {
     
   public static void main(String[] args) {
     JsonParser parser = new JsonParser();
-    JsonObject jsonArgs = parser.parse(data).getAsJsonObject();
+    JsonObject jsonArgs = parser.parse(testparams).getAsJsonObject();
     main(jsonArgs);
   }
 
@@ -31,7 +31,7 @@ public class FacialRecognition {
     boolean noArgs = (args == null);
     boolean badArgs = (args.entrySet().size() != 5);
     if (noArgs || badArgs)
-      args = parser.parse(data).getAsJsonObject();
+      args = parser.parse(testparams).getAsJsonObject();
 
     VisualRecognition service =
       new VisualRecognition(VisualRecognition.VERSION_DATE_2016_05_20);
