@@ -2,11 +2,10 @@ import java.util.List;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.ToneAnalyzer;
-import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ElementTone;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneAnalysis;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneCategory;
+import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneOptions;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneScore;
 
 public class CheckTheTone {
@@ -23,7 +22,7 @@ public class CheckTheTone {
     + "Our clients are hungry for analytical tools to improve their "
     + "business outcomes. Economy has nothing to do with it.";
 
-  private static String data =
+  private static String testparams =
     "{\"textToAnalyze\" : \"" + textToAnalyze + "\"," +
     " \"username\"       : \"\"," +
     " \"password\"       : \"\"," +
@@ -32,7 +31,7 @@ public class CheckTheTone {
 
   public static void main(String[] args) {
     JsonParser parser = new JsonParser();
-    JsonObject jsonArgs = parser.parse(data).getAsJsonObject();
+    JsonObject jsonArgs = parser.parse(testparams).getAsJsonObject();
     main(jsonArgs);
   }
 
@@ -41,29 +40,30 @@ public class CheckTheTone {
     boolean noArgs = (args == null);
     boolean badArgs = (args.entrySet().size() != 6);
     if (noArgs || badArgs)
-      args = parser.parse(data).getAsJsonObject();
+      args = parser.parse(testparams).getAsJsonObject();
 
-    ToneAnalyzer service = new ToneAnalyzer(
-      ToneAnalyzer.VERSION_DATE_2016_05_19);
+    ToneAnalyzer service = new ToneAnalyzer("2016-05-19");
     service.setUsernameAndPassword(args.get("username").getAsString(),
                                    args.get("password").getAsString());
- 	if (args.get("endpoint")!=null) 
-    	service.setEndPoint(args.get("endpoint").getAsString());
+	 	if (args.get("endpoint")!=null) 
+	    	service.setEndPoint(args.get("endpoint").getAsString());
+	 	
+	 	if (args.get("authentication")!=null) service.setSkipAuthentication((args.get("authentication").getAsString()=="true")?true:false);
+
+	 	ToneOptions options = new ToneOptions.Builder()
+	 			.text(args.get("textToAnalyze").getAsString())
+	 			.build();
  	
- 	if (args.get("authentication")!=null) service.setSkipAuthentication((args.get("authentication").getAsString()=="true")?true:false);
-
-    ToneAnalysis result =
-        service.getTone(args.get("textToAnalyze").getAsString(), null).
-        execute();
-
-    ElementTone elementTone = result.getDocumentTone();
-    List<ToneCategory> toneCategories = elementTone.getTones();
+	 	ToneAnalysis result = service.tone(options).execute();
+	 	
+	 	List<ToneCategory> toneCategories = result.getDocumentTone().getToneCategories();
+	 	
     for (ToneCategory nextCategory : toneCategories) {
-      System.out.println("Analysis for " + nextCategory.getName());
+      System.out.println("Analysis for " + nextCategory.getCategoryName());
 
       List<ToneScore> toneScores = nextCategory.getTones();
       for (ToneScore nextScore : toneScores) {
-        System.out.println("    " + nextScore.getName() + " = " +
+        System.out.println("    " + nextScore.getToneName() + " = " +
                            (int)(nextScore.getScore() * 100) + "%");
       }
       System.out.println();

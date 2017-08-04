@@ -31,7 +31,7 @@ public class GetInsights {
     + "round by wharves as Indian isles by coral reefs-commerce surrounds "
     + "it with her surf. Right and left, the streets take you waterward.";
 
-  private static String data =
+  private static String testparams =
     "{\"textToAnalyze\" : \"" + textToAnalyze + "\"," +
     " \"username\"       : \"\"," +
     " \"password\"       : \"\"," +
@@ -40,7 +40,7 @@ public class GetInsights {
 
   public static void main(String[] args) {
     JsonParser parser = new JsonParser();
-    JsonObject jsonArgs = parser.parse(data).getAsJsonObject();
+    JsonObject jsonArgs = parser.parse(testparams).getAsJsonObject();
     main(jsonArgs);
   }
 
@@ -49,7 +49,7 @@ public class GetInsights {
     boolean noArgs = (args == null);
     boolean badArgs = (args.entrySet().size() != 6);
     if (noArgs || badArgs)
-      args = parser.parse(data).getAsJsonObject();
+      args = parser.parse(testparams).getAsJsonObject();
 
     PersonalityInsights service = new
       PersonalityInsights(PersonalityInsights.VERSION_DATE_2016_10_19);

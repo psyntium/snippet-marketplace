@@ -3,7 +3,7 @@ import com.google.gson.JsonParser;
 
 public class HelloWorld {
 
-	private static String parameters = 
+	private static String testparams = 
 			"{\"request\":"
 			+ "	{\"intent\":"
 			+ "		{\"slots\":"
@@ -16,7 +16,7 @@ public class HelloWorld {
 			+ "}";
 	
 	public static void main(String[] args) {
-		JsonObject arg = new JsonParser().parse(parameters).getAsJsonObject();
+		JsonObject arg = new JsonParser().parse(testparams).getAsJsonObject();
 		JsonObject response = HelloWorld.main(arg);
 		System.out.println(response);
 	}

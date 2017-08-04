@@ -9,7 +9,7 @@ import com.ibm.watson.developer_cloud.natural_language_classifier.v1.model.Class
 
 public class LanguageClassifier {
 
-  private static String data =
+  private static String testparams =
     "{\"textToClassify\" : \"Will it rain tomorrow?\","  +
     " \"contextId\"      : \"359f41x201-nlc-180573\"," +
     " \"username\"       : \"\"," +
@@ -19,7 +19,7 @@ public class LanguageClassifier {
 
   public static void main(String[] args) {
     JsonParser parser = new JsonParser();
-    JsonObject jsonArgs = parser.parse(data).getAsJsonObject();
+    JsonObject jsonArgs = parser.parse(testparams).getAsJsonObject();
     main(jsonArgs);
   }
 
@@ -28,7 +28,7 @@ public class LanguageClassifier {
     boolean noArgs = (args == null);
     boolean badArgs = (args.entrySet().size() != 7);
     if (noArgs || badArgs)
-      args = parser.parse(data).getAsJsonObject();
+      args = parser.parse(testparams).getAsJsonObject();
 
     NaturalLanguageClassifier service = new NaturalLanguageClassifier();
 

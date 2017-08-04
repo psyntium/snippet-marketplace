@@ -10,7 +10,7 @@ import com.ibm.watson.developer_cloud.language_translator.v2.model.TranslationRe
 
 public class LanguageTranslation {
 
-  private static String data =
+  private static String testparams =
     "{\"textToTranslate\" : \"That that is not confusing is amazing.\"," +
     " \"username\"        : \"\"," +
     " \"password\"        : \"\"," +
@@ -19,7 +19,7 @@ public class LanguageTranslation {
 
   public static void main(String[] args) {
     JsonParser parser = new JsonParser();
-    JsonObject jsonArgs = parser.parse(data).getAsJsonObject();
+    JsonObject jsonArgs = parser.parse(testparams).getAsJsonObject();
     main(jsonArgs);
   }
 
@@ -28,7 +28,7 @@ public class LanguageTranslation {
     boolean noArgs = (args == null);
     boolean badArgs = (args.entrySet().size() != 6);
     if (noArgs || badArgs)
-      args = parser.parse(data).getAsJsonObject();
+      args = parser.parse(testparams).getAsJsonObject();
 
     LanguageTranslator service = new LanguageTranslator();
 
