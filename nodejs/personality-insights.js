@@ -30,18 +30,13 @@ function main(params) {
   return new Promise(function (resolve, reject) {
     const PersonalityInsightsV3 = require("watson-developer-cloud/personality-insights/v3");
 
-    var opts = {
+    var personality_insights = new PersonalityInsightsV3({
+      "username": params.username || "",
+      "password": params.password || "",
       "version_date": "2016-05-20",
       "url" : params.url || "https://gateway.watsonplatform.net/personality-insights/api",
       "use_unauthenticated": isTrue(params.use_unauthenticated)
-    }
-
-    if (params.username && params.password) {
-      opts.username = params.username;
-      opts.password = params.password;
-    }
-
-    var personality_insights = new PersonalityInsightsV3(opts);
+    });
 
     personality_insights.profile({
       "text": params.textToAnalyze
