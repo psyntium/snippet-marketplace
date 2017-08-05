@@ -1,19 +1,20 @@
-var parameters = {
+var testparams = {
   "name": "John Doe",
   "email": "jdoe@xyz.com",
   "zip": "27517"
 }
 
 function main(params) {
+  console.log(params); 
   
-  console.log(params);  
   var out = {};
-  for (var i in parameters) {
+  for (var i in testparams) {
       out[i] = params[i];
   }
   return { out };
 }
 
-if (require.main === module) console.log(JSON.stringify(main(parameters), null, 2));
+if (require.main === module)
+  console.log(JSON.stringify(main(testparams), null, 2));
 
 exports.main = main;
