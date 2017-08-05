@@ -9,16 +9,12 @@ function main(params) {
   return new Promise(function (resolve, reject) {
     const VisualRecognitionV3 = require('watson-developer-cloud/visual-recognition/v3');
     
-    var opts = {
+    var visual_recognition = new VisualRecognitionV3({
+      "api_key" : params.api_key || "";
       "version_date": "2016-05-20",
       "url" : params.url || "https://gateway-a.watsonplatform.net/visual-recognition/api",
       "use_unauthenticated": isTrue(params.use_unauthenticated)
-    }
-    
-    if (params.api_key)
-      opts.api_key = params.api_key;
-   
-    var visual_recognition = new VisualRecognitionV3(opts);
+    });
 
     visual_recognition.detectFaces({"url": params.imageurl}, function(err, res) {
       if (err)
