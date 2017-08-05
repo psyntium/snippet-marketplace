@@ -9,17 +9,12 @@ const testparams = {
 function main(params) {
   const LanguageTranslationV2 = require('watson-developer-cloud/language-translation/v2');
   
-  var opts = {
+  var language_translator = new LanguageTranslationV2({
+    "username": params.username || "",
+    "password": params.password || "",
     "url": params.url || "https://gateway.watsonplatform.net/language-translator/api",
     "use_unauthenticated": isTrue(params.use_unauthenticated)
-  }
-  
-  if (params.username && params.password) {
-    opts.username = params.username;
-    opts.password = params.password;
-  }
-  
-  var language_translator = new LanguageTranslationV2(opts);
+  });
 
   return new Promise(function (resolve, reject) {
     englishToFrench(params.textToTranslate, language_translator)
