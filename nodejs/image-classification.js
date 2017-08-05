@@ -12,7 +12,7 @@ function main(params) {
     var opts = {
       "version_date": "2016-05-20",
       "url" : params.url || "https://gateway-a.watsonplatform.net/visual-recognition/api",
-      'use_unauthenticated': isTrue(use_unauthenticated)
+      'use_unauthenticated': isTrue(params.use_unauthenticated)
     }
     
     if (params.api_key)
