@@ -8,13 +8,10 @@ const testparams = {
 
 function main(params) {
   const LanguageTranslationV2 = require('watson-developer-cloud/language-translation/v2');
-
-  var url = params.url || 'https://gateway.watsonplatform.net/language-translator/api' ;
-  var use_unauthenticated =  params.use_unauthenticated || false ;
   
   var opts = {
     "url": params.url || "https://gateway.watsonplatform.net/language-translator/api",
-    "use_unauthenticated": isTrue(use_unauthenticated)
+    "use_unauthenticated": isTrue(params.use_unauthenticated)
   }
   
   if (params.username && params.password) {
