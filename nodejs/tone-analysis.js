@@ -19,18 +19,13 @@ function main(params) {
   return new Promise(function (resolve, reject) {
     const ToneAnalyzerV3 = require("watson-developer-cloud/tone-analyzer/v3");
 
-    var opts = {
+    var tone_analyzer = new ToneAnalyzerV3({
+      "username": params.username || "",
+      "password": params.password || "",
       "version_date": "2016-05-20",
       "url" : params.url || "https://gateway.watsonplatform.net/tone-analyzer/api",
       "use_unauthenticated": isTrue(params.use_unauthenticated)
-    }
-
-    if (params.username && params.password) {
-      opts.username = params.username;
-      opts.password = params.password;
-    }
-
-    var tone_analyzer = new ToneAnalyzerV3(opts);
+    });
 
     tone_analyzer.tone({
       "text": params.textToAnalyze
