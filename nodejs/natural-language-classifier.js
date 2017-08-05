@@ -11,18 +11,13 @@ function main(params) {
   return new Promise(function (resolve, reject) {
     const NaturalLanguageClassifierV1 = require("watson-developer-cloud/natural-language-classifier/v1");
 
-    var opts = {
+    var natural_language_classifier = new NaturalLanguageClassifierV1({
+      "username": params.username || "",
+      "password": params.password || "",
       "version": "v1",
       "url": params.url || "https://gateway.watsonplatform.net/natural-language-classifier/api",
       "use_unauthenticated": isTrue(params.use_unauthenticated)
-    }
-
-    if (params.username && params.password) {
-      opts.username = params.username;
-      opts.password = params.password;
-    }
-
-    var natural_language_classifier = new NaturalLanguageClassifierV1(opts);
+    });
 
     natural_language_classifier.classify({
       "text": params.textToClassify,
