@@ -1,4 +1,4 @@
-## Language Translation
+## Tone Analyzer
 
 This code shows you how to use the Java API for the Watson tone analysis service. Given some text, Watson evaluates the tone, 
 looking for qualities such as the speaker's levels of anger, disgust, joy, fear, and sadness.
