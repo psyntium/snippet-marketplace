@@ -23,7 +23,7 @@ one the code displays.
 
 ### Testing Instructions
 
-1. To see what else Watson can identify, try these other values for *imageurl* in **testparams**
+1. To see what else Watson can identify, try these other values for **imageurl** in *testparams*
 * A cat: https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/449px-Cat_November_2010-1a.jpg
 * A school bus: https://upload.wikimedia.org/wikipedia/commons/f/f3/Laidlaw_school_bus.jpg
 * A pizza: https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Pepperoni_pizza.jpg/800px-Pepperoni_pizza.jpg
