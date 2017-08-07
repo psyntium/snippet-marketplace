@@ -24,7 +24,7 @@ one the code displays.
 
 ### Testing Instructions
 
-Try changing the text or the languages to see what happens.
+Try changing the text or the languages in **testparams** to see what happens.
 
 ### Reference
 * [Overview of the Language Translator service](https://www.ibm.com/watson/developercloud/language-translator.html)
