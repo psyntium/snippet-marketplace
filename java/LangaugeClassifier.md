@@ -1,4 +1,4 @@
-## Language Classifer
+## Language Classifier
 
 This code shows you how to use the Java API for the Watson natural language classification service. Given some text and a 
 context, Watson analyzes the text and returns a list of categories relevant to that text.
