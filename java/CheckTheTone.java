@@ -3,9 +3,9 @@ import java.util.List;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.ToneAnalyzer;
+import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ElementTone;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneAnalysis;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneCategory;
-import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneOptions;
 import com.ibm.watson.developer_cloud.tone_analyzer.v3.model.ToneScore;
 
 public class CheckTheTone {
@@ -45,35 +45,33 @@ public class CheckTheTone {
     ToneAnalyzer service = new ToneAnalyzer("2016-05-19");
     service.setUsernameAndPassword(args.get("username").getAsString(),
                                    args.get("password").getAsString());
-	 	if (args.get("endpoint")!=null) 
-	    	service.setEndPoint(args.get("endpoint").getAsString());
-	 	
-	 	if (args.get("authentication")!=null) service.setSkipAuthentication((args.get("authentication").getAsString()=="true")?true:false);
+   if (args.get("endpoint")!=null) 
+      service.setEndPoint(args.get("endpoint").getAsString());
+   
+   if (args.get("authentication")!=null) service.setSkipAuthentication((args.get("authentication").getAsString()=="true")?true:false);
 
-	 	ToneOptions options = new ToneOptions.Builder()
-	 			.text(args.get("textToAnalyze").getAsString())
-	 			.build();
- 	
-	 	ToneAnalysis result = service.tone(options).execute();
-	 	
-	 	List<ToneCategory> toneCategories = result.getDocumentTone().getToneCategories();
-	 	
-    for (ToneCategory nextCategory : toneCategories) {
-      System.out.println("Analysis for " + nextCategory.getCategoryName());
-
-      List<ToneScore> toneScores = nextCategory.getTones();
-      for (ToneScore nextScore : toneScores) {
-        System.out.println("    " + nextScore.getToneName() + " = " +
-                           (int)(nextScore.getScore() * 100) + "%");
-      }
-      System.out.println();
-    }
+   ToneAnalysis result =
+  		 service.getTone(args.get("textToAnalyze").getAsString(), null).
+  		 execute();
+  		 
+	   ElementTone elementTone = result.getDocumentTone();
+	   List<ToneCategory> toneCategories = elementTone.getTones();
+	   for (ToneCategory nextCategory : toneCategories) {
+	     System.out.println("Analysis for " + nextCategory.getName());
+	 
+	       List<ToneScore> toneScores = nextCategory.getTones();
+	       for (ToneScore nextScore : toneScores) {
+	         System.out.println("    " + nextScore.getName() + " = " +
+	                          (int)(nextScore.getScore() * 100) + "%");
+	     }
+	     System.out.println();
+	   }
 
     JsonObject returnObject = parser.parse(result.toString()).getAsJsonObject();
 
     if (noArgs || badArgs)
       returnObject.
-      	addProperty("Note", "Either no arguments or the wrong number " +
+       addProperty("Note", "Either no arguments or the wrong number " +
                     "of arguments were passed in to this service, so " +
                     "default values were used. To POST data to this " +
                     "service, set the HTTP Content-Type header to " +
