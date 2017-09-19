@@ -26,7 +26,7 @@ public class LanguageClassifier {
   public static JsonObject main(JsonObject args) {
     JsonParser parser = new JsonParser();
     boolean noArgs = (args == null);
-    boolean badArgs = (args.entrySet().size() != 7);
+    boolean badArgs = (args.get("textToClassify").getAsString().isEmpty() || args.get("contextId").getAsString().isEmpty() || args.get("username").getAsString().isEmpty() || args.get("password").getAsString().isEmpty());
     if (noArgs || badArgs)
       args = parser.parse(testparams).getAsJsonObject();
 
