@@ -16,7 +16,7 @@ JSON object, then it calls...
 deployed as an OpenWhisk action.
 
 ### Code Walkthrough
-1. Lines 58-68 illustrate the Java API for the service. The Watson SDK wraps the JSON returned by the service as a set of objects 
+1. Lines 53-65 illustrate the Java API for the service. The Watson SDK wraps the JSON returned by the service as a set of objects 
 that are easy to work with in Java. 
 
 2. The results indicate the emotional, language, and social tones for the entire document. You can also get the analysis for 
