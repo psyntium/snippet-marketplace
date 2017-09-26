@@ -1,4 +1,4 @@
-## Language Translation
+## Personality Insights
 
 This code shows you how to use the Java API for the Watson Personality Insights service. Given some text, Watson analyzes
 the openness, conscientiousness, extraversion, agreeableness, emotional range, and needs of the speaker.
