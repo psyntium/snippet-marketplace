@@ -1,6 +1,22 @@
-## Simple Node.js App with Dynamic Library
+An app that demonstrates how to load NPM packages at runtime. By default, the IBM Cloud Functions environment provides a limited number of packages. This sample extends the packages available by loading the `zipcodes` package to display the details of the city associated with a U.S. zip code. 
 
-By default, the Run operation bundled with pre-defined libraries. To import other library, simple add the following syntax at the first line. If there are more than one jar, separate them with semicolon(;)
+To load an NPM package, start your code with this syntax: 
+
+```javascript
+// npm zipcodes
 ```
-// npm <replace_with_jar_url>;<jar2_url>
+
+To use the package, simply use a `require` statement as you normally would: 
+
+```javascript
+  const zipcodes = require('zipcodes');
+```
+
+To load multiple packages, separate the package names with spaces:
+
+```javascript
+// npm zipcodes flying-car
+...
+  const flyingCar = require('flying-car');
+  const zipcodes = require('zipcodes');
 ```
