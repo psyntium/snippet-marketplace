@@ -1,4 +1,8 @@
-An app that demonstrates how to load NPM packages at runtime. By default, the IBM Cloud Functions environment provides a limited number of packages. This sample extends the packages available by loading the `zipcodes` package to display the details of the city associated with a U.S. zip code. 
+## A simple node app that loads NPM packages dynamically 
+
+An app that demonstrates how to load NPM packages at runtime. By default, the IBM Cloud Functions environment provides 
+a limited number of packages. This sample extends the packages available by loading the `zipcodes` package to 
+display the details of the city associated with a U.S. zip code. 
 
 To load an NPM package, start your code with this syntax: 
 
