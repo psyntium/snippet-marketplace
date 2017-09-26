@@ -1,3 +1,3 @@
-## A simple deployable sample
+## A simple Python sample
 
-This is just about the simplest deployable Python program you can write. 
+This code is structured to be deployable, but support for deployable Python code isn't available yet. Stay tuned....
