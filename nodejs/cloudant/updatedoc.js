@@ -4,7 +4,8 @@ var testparams = {
     "name": "foo bar",
     "comment" : "test to update the document",
     "username": "",
-    "password": ""
+    "password": "",
+    "proxy": "http://cloudant-proxy.mybluemix.net/"
 };
 const request = require("request");
 const Cloudant = require('cloudant');
@@ -16,7 +17,7 @@ function main(params) {
         password : params.password || "",
         dbname : params.dbname || ""
     };
-    var cloudant = Cloudant(dbConfig);
+    var cloudant = Cloudant(params.proxy || dbConfig);
     var db = cloudant.db.use(dbConfig.dbname);
     var id = params.docid || "";
 
