@@ -6,6 +6,7 @@ import java.net.URL;
 import com.cloudant.client.api.ClientBuilder;
 import com.cloudant.client.api.CloudantClient;
 import com.cloudant.client.org.lightcouch.PreconditionFailedException;
+import com.cloudant.client.org.lightcouch.NoDocumentException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;  
 
@@ -13,36 +14,40 @@ public class DeleteDB {
   	  	 
     public String testparams = "{\"dbname\":\"person\","
   	 		+ "\"username\":\"\","
-  	 		+ "\"password\":\"\"}"; 	  	 
+  	 		+ "\"password\":\"\"," 	 		
+    		+ "\"proxy\":\"http://cloudant-proxy.mybluemix.net/\"}"; 	  	 
     
     public static void main(String[] args) { 	   
-    		DeleteDB hello = new DeleteDB(); 	   
-	      System.out.println(main(new JsonParser().parse(hello.testparams).getAsJsonObject()));     
+    	DeleteDB hello = new DeleteDB(); 	   
+	    System.out.println(main(new JsonParser().parse(hello.testparams).getAsJsonObject()));     
     } 	  	 
     
     public static JsonObject main(JsonObject args) { 	   
         
-    	 JsonObject output = new JsonObject();
+    	JsonObject output = new JsonObject();
 		  
-	   	 String username = args.getAsJsonPrimitive("username").getAsString();
-	   	 String password = args.getAsJsonPrimitive("password").getAsString();
-	   	 String dbname = args.getAsJsonPrimitive("dbname").getAsString();
+	   	String username = args.getAsJsonPrimitive("username").getAsString();
+	   	String password = args.getAsJsonPrimitive("password").getAsString();
+	   	String dbname = args.getAsJsonPrimitive("dbname").getAsString();
+        String url = args.getAsJsonPrimitive("proxy").getAsString().isEmpty()?("https://" + username + ".cloudant.com"):args.getAsJsonPrimitive("proxy").getAsString();
 	
-	 		 try {
-	 			 CloudantClient client = ClientBuilder.url(new URL("https://" + username + ".cloudant.com"))
-	 	        .username(username)
-	 	        .password(password)
-	 	        .build();;
-	 	      
-	        client.deleteDB(dbname);
-	     	 output.addProperty("result", "Database deleted ");
-	         
-	   		} catch(PreconditionFailedException ex) {
-	 				 output.addProperty("err", ex.getReason());
-	 			} catch (MalformedURLException e) {
-	 				 e.printStackTrace();
-	 		} 
-	 	  
-	 	   return output;	 
+		try {
+			CloudantClient client = ClientBuilder.url(new URL(url))
+				.username(username)
+				.password(password)
+				.build();;
+			
+			client.deleteDB(dbname);
+			output.addProperty("result", "Database deleted ");
+			
+		} catch(NoDocumentException ex) {
+			output.addProperty("err", ex.getReason());
+		} catch(PreconditionFailedException ex) {
+			output.addProperty("err", ex.getReason());
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} 
+		
+		return output;	 
     } 	
 }

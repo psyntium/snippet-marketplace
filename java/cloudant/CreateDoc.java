@@ -18,59 +18,60 @@ public class CreateDoc {
   	 		+ "\"password\":\"\","
   	 		+ "\"name\":\"Joe Doe\","
   	 		+ "\"email\":\"joedoe@email.com\","
-  	 		+ "\"comment\":\"This is a test\"}"; 	  	 
+  	 		+ "\"comment\":\"This is a test\"," 	 		
+    		+ "\"proxy\":\"http://cloudant-proxy.mybluemix.net/\"}"; 	  	 
     
     public static void main(String[] args) { 	   
-    		CreateDoc hello = new CreateDoc(); 	   
+    	CreateDoc hello = new CreateDoc(); 	   
         System.out.println(main(new JsonParser().parse(hello.testparams).getAsJsonObject()));     
     } 	  	 
     
     public static JsonObject main(JsonObject args) { 	   
         
-    	 JsonObject output = new JsonObject();
+    	JsonObject output = new JsonObject();
 		  
-	   	 String username = args.getAsJsonPrimitive("username").getAsString();
-	   	 String password = args.getAsJsonPrimitive("password").getAsString();
-	   	 String dbname = args.getAsJsonPrimitive("dbname").getAsString();
+	   	String username = args.getAsJsonPrimitive("username").getAsString();
+	   	String password = args.getAsJsonPrimitive("password").getAsString();
+	   	String dbname = args.getAsJsonPrimitive("dbname").getAsString();
+        String url = args.getAsJsonPrimitive("proxy").getAsString().isEmpty()?("https://" + username + ".cloudant.com"):args.getAsJsonPrimitive("proxy").getAsString();
 	
-	 		 try {
-	 			 CloudantClient client = ClientBuilder.url(new URL("https://" + username + ".cloudant.com"))
-	 	        .username(username)
-	 	        .password(password)
-	 	        .build();;
-	 	        
-	 			 	//Create a dummy json document
-	 	    	JsonObject studentJson = new JsonObject();
-	 	    	studentJson.addProperty("name", args.getAsJsonPrimitive("name").getAsString());
-	 	    	studentJson.addProperty("email", args.getAsJsonPrimitive("email").getAsString());
-	 	    	studentJson.addProperty("comment", args.getAsJsonPrimitive("comment").getAsString());
+		try {
+			CloudantClient client = ClientBuilder.url(new URL(url))
+				.username(username)
+				.password(password)
+				.build();;
+		
+			//Create a dummy json document
+			JsonObject studentJson = new JsonObject();
+			studentJson.addProperty("name", args.getAsJsonPrimitive("name").getAsString());
+			studentJson.addProperty("email", args.getAsJsonPrimitive("email").getAsString());
+			studentJson.addProperty("comment", args.getAsJsonPrimitive("comment").getAsString());
+
+			Database db = client.database(dbname, false);
+			Response dbResponse = db.save(studentJson);
+			
+			//for success insertion
+			if(dbResponse.getStatusCode() < 400) {
+				output.add("doc", studentJson);	
+			
+				//dbResponse json data
+				JsonObject dbResponseJson = new JsonObject();
+				dbResponseJson.addProperty("status", dbResponse.getStatusCode() + " - " + dbResponse.getReason());
+				dbResponseJson.addProperty("id", dbResponse.getId());
+				dbResponseJson.addProperty("rev", dbResponse.getRev());
+			
+				output.add("data", dbResponseJson);
+			}
+			else {
+				output.addProperty("err", dbResponse.getStatusCode() + " - " + dbResponse.getReason());
+			}
+			
+		} catch(PreconditionFailedException ex) {
+			output.addProperty("err", ex.getReason());
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} 
 	
-	 	    	Database db = client.database(dbname, false);
-	 	    	Response dbResponse = db.save(studentJson);
-	 	    		
-	 				//for success insertion
-	 				if(dbResponse.getStatusCode() < 400) {
-	 					output.add("doc", studentJson);	
-	 			    
-	 					//dbResponse json data
-	 		    	JsonObject dbResponseJson = new JsonObject();
-	 		    	dbResponseJson.addProperty("status", dbResponse.getStatusCode() + " - " + dbResponse.getReason());
-	 		    	dbResponseJson.addProperty("id", dbResponse.getId());
-	 		    	dbResponseJson.addProperty("rev", dbResponse.getRev());
-	 			    
-	 					output.add("data", dbResponseJson);
-	 				}
-	 				else {
-	 					output.addProperty("err", dbResponse.getStatusCode() + " - " + dbResponse.getReason());
-	 				}
-	 				
-	 		 } catch(PreconditionFailedException ex) {
-	 				output.addProperty("err", ex.getReason());
-	 		 } catch (MalformedURLException e) {
-	 			// TODO Auto-generated catch block
-	 			e.printStackTrace();
-	 		} 
-	 	  
-	 	  return output;	 
+		return output;	 
     } 	
 }

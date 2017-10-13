@@ -12,8 +12,9 @@ import com.google.gson.JsonParser;
 public class CreateDB { 	 	
   	  	 
     public String testparams = "{\"dbname\":\"person\"," 	 		
-    + "\"username\":\"\"," 	 		
-    + "\"password\":\"\"}"; 	  	 
+            + "\"username\":\"\"," 	 		
+            + "\"password\":\"\"," 	 		
+            + "\"proxy\":\"http://cloudant-proxy.mybluemix.net/\"}"; 	  	 
     
     public static void main(String[] args) { 	   
         CreateDB hello = new CreateDB(); 	   
@@ -24,9 +25,10 @@ public class CreateDB {
         
         JsonObject output = new JsonObject(); 		     	 
         String username = args.getAsJsonPrimitive("username").getAsString();   	 
-        String password = args.getAsJsonPrimitive("password").getAsString();  		 
+        String password = args.getAsJsonPrimitive("password").getAsString();
+        String url = args.getAsJsonPrimitive("proxy").getAsString().isEmpty()?("https://" + username + ".cloudant.com"):args.getAsJsonPrimitive("proxy").getAsString();
         try { 			 
-            CloudantClient client = ClientBuilder.url(new URL("https://" + username + ".cloudant.com")) 	        
+            CloudantClient client = ClientBuilder.url(new URL(url)) 	        
             .username(username) 	        
             .password(password) 	        
             .build();; 	  	 				
@@ -36,8 +38,7 @@ public class CreateDB {
             
         } catch(PreconditionFailedException ex) { 				
             output.addProperty("err", ex.getReason()); 		          
-        } catch (MalformedURLException e) { 			
-            // TODO Auto-generated catch block 			
+        } catch (MalformedURLException e) { 		
             e.printStackTrace(); 		
         } 
         
