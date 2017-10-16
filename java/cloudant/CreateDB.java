@@ -11,7 +11,7 @@ import com.google.gson.JsonParser;
 
 public class CreateDB { 	 	
   	  	 
-    public String testparams = "{\"dbname\":\"person\"," 	 		
+    public String testparams = "{\"dbname\":\"person_MYNAME\"," //Replace MYNAME with your name to make it unique 	 		
             + "\"username\":\"\"," 	 		
             + "\"password\":\"\"," 	 		
             + "\"proxy\":\"http://cloudant-proxy.mybluemix.net/\"}"; 	  	 

@@ -1,5 +1,5 @@
 var testparams = {
-    "dbname": "person",
+    "dbname": "person_MYNAME", //Replace MYNAME with your name
     "username": "",
     "password": "",
     "name": "Joe Doe",

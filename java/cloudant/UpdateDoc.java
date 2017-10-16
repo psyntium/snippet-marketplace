@@ -14,7 +14,7 @@ import com.google.gson.JsonParser;
 
 public class UpdateDoc { 	 	
   	  	 
-    public String testparams = "{\"dbname\":\"person\","
+    public String testparams = "{\"dbname\":\"person_MYNAME\"," //Replace MYNAME with your name
   	 		+ "\"docid\":\"\","
   	 		+ "\"name\":\"Foo Bar\","
   	 		+ "\"comment\":\"I updated the doc\","

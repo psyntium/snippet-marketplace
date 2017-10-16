@@ -1,5 +1,5 @@
 var testparams = {
-    "dbname": "person",
+    "dbname": "person_MYNAME", //Replace MYNAME with your name to make it unique
     "username": "",
     "password": "",
     "proxy": "http://cloudant-proxy.mybluemix.net/"

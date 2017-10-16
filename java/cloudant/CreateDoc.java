@@ -13,7 +13,7 @@ import com.google.gson.JsonParser;
 
 public class CreateDoc { 	 	
   	  	 
-    public String testparams = "{\"dbname\":\"person\","
+    public String testparams = "{\"dbname\":\"person_MYNAME\"," //Replace MYNAME with your name
   	 		+ "\"username\":\"\","
   	 		+ "\"password\":\"\","
   	 		+ "\"name\":\"Joe Doe\","

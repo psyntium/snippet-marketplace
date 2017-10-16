@@ -1,5 +1,5 @@
 var testparams = {
-    "dbname": "person",
+    "dbname": "person_MYNAME", //Replace MYNAME with your name
     "docid": "",
     "name": "foo bar",
     "comment" : "test to update the document",

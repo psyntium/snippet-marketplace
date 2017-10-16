@@ -17,7 +17,7 @@ import com.google.gson.JsonSyntaxException;
 
 public class ListDoc { 	 	
   	  	 
-    public String testparams = "{\"dbname\":\"person\","
+    public String testparams = "{\"dbname\":\"person_MYNAME\"," //Replace MYNAME with your name
   	 		+ "\"username\":\"\","
   	 		+ "\"password\":\"\"," 	 		
     		+ "\"proxy\":\"http://cloudant-proxy.mybluemix.net/\"}"; 	  	 

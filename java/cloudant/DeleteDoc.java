@@ -15,7 +15,7 @@ import com.google.gson.JsonParser;
 
 public class DeleteDoc { 	 	
   	  	 
-    public String testparams = "{\"dbname\":\"person\","
+    public String testparams = "{\"dbname\":\"person_MYNAME\"," //Replace MYNAME with your name
   	 		+ "\"docid\":\"\","
   	 		+ "\"username\":\"\","
   	 		+ "\"password\":\"\"," 	 		

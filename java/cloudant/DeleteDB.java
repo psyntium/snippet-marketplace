@@ -12,7 +12,7 @@ import com.google.gson.JsonParser;
 
 public class DeleteDB { 	 	
   	  	 
-    public String testparams = "{\"dbname\":\"person\","
+    public String testparams = "{\"dbname\":\"person_MYNAME\"," //Replace MYNAME with your name
   	 		+ "\"username\":\"\","
   	 		+ "\"password\":\"\"," 	 		
     		+ "\"proxy\":\"http://cloudant-proxy.mybluemix.net/\"}"; 	  	 
