@@ -1,3 +1,3 @@
 ## A simple Python sample
 
-This code is structured to be deployable, but support for deployable Python code isn't available yet. Stay tuned....
+This code is structured to be deployable, and testable !!!
