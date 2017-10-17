@@ -1,4 +1,4 @@
-## Cloudant - Delete Document
+## Cloudant - Update Document
 
 This code shows you how to use the node.js API to update a document from cloudant database. 
 
