@@ -15,7 +15,7 @@ If the call to *public static JsonObject main(JsonObject args)* has no parameter
 1. Lines 24-30 illustrate the Java API to create Redis client, and line 32-33 to get the key and to show the value.
 
 ### Testing Instructions
-1. Change the **hostname**, **password**, **port**, and **key** in **testparams** to see what happens.
+1. The code as is, automatically uses a built-in test environment. To use against your own redis system, change the **hostname**, **password**, **port**, and **key** in **testparams**.
 
 ### Reference
 * [Redis Documentation](https://redis.io/)

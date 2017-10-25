@@ -14,7 +14,7 @@ See the Node.js documentation for more information on the implications of the re
 1. This code takes Redis hostname, password, port, key, and field as input, and delete the hashed field of key from the Redis database. The call to hdelete is wrapped in a JavaScript Promise to handle the asynchronous nature of the service.
 
 ### Testing Instructions
-1. Change the **hostname**, **password**, **port**, **key**, and **field** in **testparams** to see what happens.
+1. The code as is, automatically uses a built-in test environment. To use against your own redis system, change the **hostname**, **password**, **port**, **key**, and **field** in **testparams**.
 
 ### Reference
 * [Redis Documentation](https://redis.io/)

@@ -16,7 +16,7 @@ See the Node.js documentation for more information on the implications of the re
 2. The * in **regex** params is to retrieve all keys.
 
 ### Testing Instructions
-1. Change the **hostname**, **password**, **port**, and **regex** in **testparams** to see what happens.
+1. The code as is, automatically uses a built-in test environment. To use against your own redis system, change the **hostname**, **password**, **port**, and **regex** in **testparams**.
 
 ### Reference
 * [Redis Documentation](https://redis.io/)

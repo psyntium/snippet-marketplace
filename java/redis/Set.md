@@ -19,7 +19,7 @@ If the call to *public static JsonObject main(JsonObject args)* has no parameter
 3. Note that if key exists, overwrite the values; otherwise, create the key and value.
 
 ### Testing Instructions
-1. Change the **hostname**, **password**, **port**, **key**, and **value** in **testparams** to see what happens.
+1. The code as is, automatically uses a built-in test environment. To use against your own redis system, change the **hostname**, **password**, **port**, **key**, and **value** in **testparams**.
 
 ### Reference
 * [Redis Documentation](https://redis.io/)

@@ -14,7 +14,7 @@ See the Node.js documentation for more information on the implications of the re
 1. This code takes Redis hostname, password, port as input, and delete all keys from the Redis database. The call to flushdb is wrapped in a JavaScript Promise to handle the asynchronous nature of the service.
 
 ### Testing Instructions
-1. Change the **hostname**, **password**, and **port**in **testparams** to see what happens.
+1. The code as is, automatically uses a built-in test environment. To use against your own redis system, change the **hostname**, **password**, and **port**in **testparams**.
 
 ### Reference
 * [Redis Documentation](https://redis.io/)

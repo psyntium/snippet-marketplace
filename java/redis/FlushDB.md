@@ -17,7 +17,7 @@ If the call to *public static JsonObject main(JsonObject args)* has no parameter
 2. The results show the status of success/failure deleting all key(s).
 
 ### Testing Instructions
-1. Change the **hostname**, **password**, and **port** in **testparams** to see what happens.
+1. The code as is, automatically uses a built-in test environment. To use against your own redis system, change the **hostname**, **password**, and **port** in **testparams**.
 
 ### Reference
 * [Redis Documentation](https://redis.io/)

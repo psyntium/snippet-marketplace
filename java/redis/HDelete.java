@@ -9,7 +9,7 @@ public class HDelete {
   	  	 
     public String testparams = "{\"hostname\":\"\","
   	 		+ "\"password\":\"\","
-  	 		+ "\"port\":\"\","
+  	 		+ "\"port\":\"0\","
   	 		+ "\"key\":\"hashkey1\","
   	 		+ "\"field\":\"hashfield1\"}"; 	  	 
     
