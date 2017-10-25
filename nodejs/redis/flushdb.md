@@ -1,0 +1,21 @@
+## Redis - Flush Redis Database
+
+This code shows you how to use the node.js API to delete all keys from Redis database. 
+
+The code has two basic sections:
+
+1. The main() method. This is the entry point to the code. It creates the Redis client and then invokes the client.get() method to get the key.
+
+2. A set of default parameters and the code that runs this module if it is invoked by itself (as opposed to being invoked by a require() statement).
+
+See the Node.js documentation for more information on the implications of the require.main === module statement.
+
+### Code Walkthrough
+1. This code takes Redis hostname, password, port as input, and delete all keys from the Redis database. The call to flushdb is wrapped in a JavaScript Promise to handle the asynchronous nature of the service.
+
+### Testing Instructions
+1. Change the **hostname**, **password**, and **port**in **testparams** to see what happens.
+
+### Reference
+* [Redis Documentation](https://redis.io/)
+* [Redis Command](https://redis.io/commands/)
