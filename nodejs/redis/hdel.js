@@ -10,8 +10,8 @@ var redis = require('redis');
 
 function main(params) {
     var redisconn = {
-        hostname : params.hostname || "SANDBOX_REDIST_HOST", 
-        password : params.password || "SANDBOX_REDIS_PASSOWRD",
+        hostname : params.hostname || "SANDBOX_REDIS_HOST", 
+        password : params.password || "SANDBOX_REDIS_PASSWORD",
         port : params.port || "SANDBOX_REDIS_PORT"
     };
 

@@ -23,8 +23,8 @@ public class HDelete {
     	 JsonObject output = new JsonObject();
 		  
     	 JsonObject redisConn = new JsonObject();
-    	 redisConn.addProperty("hostname", args.getAsJsonPrimitive("hostname").getAsString().isEmpty()?"SANDBOX_REDIST_HOST":args.getAsJsonPrimitive("hostname").getAsString());
-    	 redisConn.addProperty("password", args.getAsJsonPrimitive("password").getAsString().isEmpty()?"SANDBOX_REDIS_PASSOWRD":args.getAsJsonPrimitive("password").getAsString());
+    	 redisConn.addProperty("hostname", args.getAsJsonPrimitive("hostname").getAsString().isEmpty()?"SANDBOX_REDIS_HOST":args.getAsJsonPrimitive("hostname").getAsString());
+    	 redisConn.addProperty("password", args.getAsJsonPrimitive("password").getAsString().isEmpty()?"SANDBOX_REDIS_PASSWORD":args.getAsJsonPrimitive("password").getAsString());
     	 redisConn.addProperty("port", args.getAsJsonPrimitive("port").getAsString().equals("0")?"SANDBOX_REDIS_PORT":args.getAsJsonPrimitive("port").getAsString());
 	
          Jedis client = new Jedis(redisConn.getAsJsonPrimitive("hostname").getAsString(), redisConn.getAsJsonPrimitive("port").getAsInt());
