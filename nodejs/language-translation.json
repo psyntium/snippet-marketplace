@@ -1,0 +1,18 @@
+{
+	"s_topic": "Watson",
+	"description": "Translate text from one language to another",
+	"s_creator_user_id": "9999",
+	"s_code_language": "js",
+	"env_kind": "nodejs:6",
+	"code_identifier": "language-translation.js",
+	"reference_url": "",
+	"reference_image_url": "",
+	"reference_video_url": "",
+	"s_updated_yyyy": 2017,
+	"s_updated_mm": 7,
+	"updated_day_yyyy_mm_dd": "2017_07_20",
+	"code_url": "https://raw.githubusercontent.com/snippet-java/snippet-marketplace/master/nodejs/language-translation.js",
+	"challenge_code_url": "",
+	"expected_result_url": "",
+	"doc_url": "https://raw.githubusercontent.com/snippet-java/snippet-marketplace/master/nodejs/language-translation.md"
+}
