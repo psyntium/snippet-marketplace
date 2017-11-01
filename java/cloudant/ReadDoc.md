@@ -22,7 +22,9 @@ deployed as an OpenWhisk action.
 ### Testing Instructions
 1. Before this, please create a cloudant database of your own, by following CreateDB sample in the catalog.
 
-2. Change the **dbname** to `person_MYNAME` (where MYNAME should be replaced by your name) and **docid** in **testparams** to see what happens.
+2. The code as is, automatically uses a built-in test environment. Please change the **dbname** to `person_MYNAME` (where MYNAME should be replaced by your name to make it unique) in **testparams**.
+
+3. To use against your own Cloudant system, please change **dbname**, **username**, and **password** in **testparams**.
 
 ### Reference
 * [Cloudant Documentation](https://docs.cloudant.com/)
