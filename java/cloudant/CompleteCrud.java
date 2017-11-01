@@ -19,7 +19,7 @@ import com.google.gson.JsonSyntaxException;
 
 public class CompleteCrud { 	 	
   	  	 
-    public String testparams = "{\"dbname\":\"person_test\"," //Replace MYNAME with your name
+    public String testparams = "{\"dbname\":\"person_MYNAME\"," //Replace MYNAME with your name
   	 		+ "\"doc_name\":\"Joe Doe\","
   	 		+ "\"doc_email\":\"joedoe@email.com\","
   	 		+ "\"doc_comment\":\"This is just a test\","
