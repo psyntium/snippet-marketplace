@@ -1,0 +1,18 @@
+{
+	"s_topic": "Watson",
+	"description": "Identify objects in an image",
+	"s_creator_user_id": "9999",
+	"s_code_language": "py",
+	"env_kind": "python:3",
+	"code_identifier": "image-classification.js",
+	"reference_url": "",
+	"reference_image_url": "",
+	"reference_video_url": "",
+	"s_updated_yyyy": 2017,
+	"s_updated_mm": 11,
+	"updated_day_yyyy_mm_dd": "2017_11_08",
+	"code_url": "https://raw.githubusercontent.com/snippet-java/snippet-marketplace/master/python/image-classification.py",
+	"challenge_code_url": "",
+	"expected_result_url": "",
+	"doc_url": "https://raw.githubusercontent.com/snippet-java/snippet-marketplace/master/python/image-classification.md"
+}
