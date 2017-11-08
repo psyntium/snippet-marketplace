@@ -11,8 +11,8 @@
 	"s_updated_yyyy": 2017,
 	"s_updated_mm": 11,
 	"updated_day_yyyy_mm_dd": "2017_11_08",
-	"code_url": "https://raw.githubusercontent.com/snippet-java/snippet-marketplace/master/java/nlu/DetectLanguage.java",
+	"code_url": "https://raw.githubusercontent.com/snippet-java/snippet-marketplace/master/java/NLU/DetectLanguage.java",
 	"challenge_code_url": "",
 	"expected_result_url": "",
-	"doc_url": "https://raw.githubusercontent.com/snippet-java/snippet-marketplace/master/java/nlu/DetectLanguage.md"
+	"doc_url": "https://raw.githubusercontent.com/snippet-java/snippet-marketplace/master/java/NLU/DetectLanguage.md"
 }
