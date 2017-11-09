@@ -4,7 +4,7 @@
 	"s_creator_user_id": "9999",
 	"s_code_language": "py",
 	"env_kind": "python:3",
-	"code_identifier": "image-classification.js",
+	"code_identifier": "image-classification.py",
 	"reference_url": "",
 	"reference_image_url": "",
 	"reference_video_url": "",
