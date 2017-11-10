@@ -24,4 +24,4 @@ See the Python documentation for more information
 ### Reference
 * [NLU Documentation](https://console.bluemix.net/docs/services/natural-language-understanding/getting-started.html#getting-started-tutorial)
 
-* [NLU API] (https://www.ibm.com/watson/developercloud/natural-language-understanding/api/v1/)
+* [NLU API](https://www.ibm.com/watson/developercloud/natural-language-understanding/api/v1/)
