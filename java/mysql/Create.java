@@ -10,10 +10,10 @@ import com.google.gson.JsonParser;
 
 public class Create { 	 	
   	  	 
-    public String testparams = "{\"hostname\":\"us-cdbr-sl-dfw-01.cleardb.net\","
-  	 		+ "\"username\":\"b319ac7e3853e4\","
-  	 		+ "\"password\":\"db586ae5\","
-  	 		+ "\"dbname\":\"ibmx_b20a18ec42f7a48\","
+    public String testparams = "{\"hostname\":\"\","
+  	 		+ "\"username\":\"\","
+  	 		+ "\"password\":\"\","
+  	 		+ "\"dbname\":\"\","
   	 		+ "\"tablename\":\"student_username\","
   	 		+ "\"studentFirstName\":\"John\","
   	 		+ "\"studentLastName\":\"Doe\","
