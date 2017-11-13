@@ -1,5 +1,5 @@
 {
-	"s_topic": "NLU",
+	"s_topic": "Watson",
 	"description": "Extracts concepts, entities, keywords, categories, emotion, sentiment, metadata, relations and semantic roles from an online article",
 	"s_creator_user_id": "9999",
 	"s_code_language": "py",
