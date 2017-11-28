@@ -1,5 +1,5 @@
 {
-	"s_topic": "Starter",
+	"s_topic": "Basic",
 	"description": "Simple GET request",
 	"s_creator_user_id": "9999",
 	"s_code_language": "js",
@@ -11,8 +11,8 @@
 	"s_updated_yyyy": 2017,
 	"s_updated_mm": 11,
 	"updated_day_yyyy_mm_dd": "2017_11_08",
-	"code_url": "https://raw.githubusercontent.com/snippet-java/snippet-marketplace/master/nodejs/http-get-sample.js",
+	"code_url": "https://raw.githubusercontent.com/snippet-java/snippet-marketplace/master/nodejs/Basic/http-get-sample.js",
 	"challenge_code_url": "",
 	"expected_result_url": "",
-	"doc_url": "https://raw.githubusercontent.com/snippet-java/snippet-marketplace/master/nodejs/http-get-sample.md"
+	"doc_url": "https://raw.githubusercontent.com/snippet-java/snippet-marketplace/master/nodejs/Basic/http-get-sample.md"
 }
