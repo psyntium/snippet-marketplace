@@ -6,18 +6,15 @@ var testparams = {
   "drive_oauth_client_secret": "",
   "drive_oauth_client_id": "",
   "drive_oauth_redirect_url": ["urn:ietf:wg:oauth:2.0:oob"],
-  "token": {
-    "refresh_token": ""
-  }
+  "refresh_token": ""
 };
 
 function main(params) {
 
   return new Promise(function(resolve, reject){
-      console.log(params);
       var content = {
-        "client_secret": params.drive_oauth_client_secret,
-        "client_id": params.drive_oauth_client_id,
+        "client_secret": params.drive_oauth_client_secret || "GDRIVE_CLIENT_SECRET",
+        "client_id": params.drive_oauth_client_id || "GDRIVE_CLIENT_ID",
         "redirect_uris": params.drive_oauth_redirect_url
       }
       authorize(content, uploadFile);
@@ -35,7 +32,7 @@ function main(params) {
         var auth = new googleAuth();
         var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
 
-        oauth2Client.credentials = params.token;
+        oauth2Client.credentials = {"refresh_token": params.refresh_token || "GDRIVE_REFRESH_TOKEN"};
         callback(oauth2Client);
       }
 

@@ -7,9 +7,7 @@ var testparams = {
   "drive_oauth_client_secret": "",
   "drive_oauth_client_id": "",
   "drive_oauth_redirect_url": ["urn:ietf:wg:oauth:2.0:oob"],
-  "token": {
-    "refresh_token": ""
-  },
+  "refresh_token": "",
   "fileId": ""
 };
 
@@ -36,7 +34,7 @@ function main(params) {
         var auth = new googleAuth();
         var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
 
-        oauth2Client.credentials = params.token;
+        oauth2Client.credentials = {"refresh_token": params.refresh_token || "GDRIVE_REFRESH_TOKEN"};
         callback(oauth2Client);
       }
 
